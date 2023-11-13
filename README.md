@@ -5,7 +5,7 @@ Node.js fetch request:
 
 const fetch = require('node-fetch');
 
-let url = 'http://localhost:3000/api/1234';
+let url = 'https://workout-api-lemon.vercel.app/api/1234';
 
 let options = {
   method: 'POST',
