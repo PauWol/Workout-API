@@ -1,0 +1,19 @@
+{
+    "exercises":[
+        {"name":"Dips","difficulty":7,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Tricep-Dips","difficulty":3,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Ring-Dips","difficulty":8,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Push-Up","difficulty":4,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Narrow-Push-Up","difficulty":4.2,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Diamond-Push-Up","difficulty":5.2,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Wide-Push-Up","difficulty":4.5,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Ring-Fly-Push-Up","difficulty":3.5,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Decline-Wide-Push-Up","difficulty":5.5,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Incline-Wide-Push-Up","difficulty":2.2,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Decline-Push-Up","difficulty":5.8,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Incline-Push-Up","difficulty":2,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Decline-Narrow-Push-Up","difficulty":6,"explanation":"","muscleGroup":["chest","triecep","shoulder"]},
+        {"name":"Incline-Narrow-Push-Up","difficulty":2.5,"explanation":"","muscleGroup":["chest","triecep","shoulder"]}
+    ]
+}
+    
