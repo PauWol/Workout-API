@@ -49,7 +49,7 @@ function autoWorkout(workouts,difficulty,length,time){
                 const element = workouts[i];
                 if (element.difficulty >= 3) {
                     element["set"] = Number(difficulty);
-                    result = result.push(element);
+                    result.push(element);
                 }
                 
             }
@@ -61,7 +61,7 @@ function autoWorkout(workouts,difficulty,length,time){
                 const element = workouts[i];
                 if (element.difficulty <= 3) {
                     element["set"] = Number(difficulty);
-                    result = result.push(element);
+                    result.push(element);
                 }
                 
             }
