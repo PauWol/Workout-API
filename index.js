@@ -14,7 +14,7 @@ app.use( cors() );
 app.use( express.json() );
 
 //difficulty has a scale from 0 to 6
-async function proccesWorkout(type,difficulty = 3,length = 10,time = undefined,preset = "auto") {
+async function proccesWorkout(type,difficulty = 3,length = 5,time = undefined,preset = "auto") {
     let result = [],workouts;
     switch (type) {
         case 'push':
@@ -43,29 +43,31 @@ async function proccesWorkout(type,difficulty = 3,length = 10,time = undefined,p
 
 function autoWorkout(workouts,difficulty,length,time){
     let result = [];
-if (difficulty >= 4) {
-    for (const i in workouts) {
-        if (Object.hasOwnProperty.call(workouts, i)) {
-            const element = workouts[i];
-            if (element.difficulty >= 3) {
-                result.push(element);
+    if (difficulty >= 4) {
+        for (const i in workouts) {
+            if (Object.hasOwnProperty.call(workouts, i)) {
+                const element = workouts[i];
+                if (element.difficulty >= 3) {
+                    element.set = difficulty;
+                    result = result.push(element);
+                }
+                
             }
-            
         }
     }
-}
-else if (difficulty <= 3) {
-    for (const i in workouts) {
-        if (Object.hasOwnProperty.call(workouts, i)) {
-            const element = workouts[i];
-            if (element.difficulty <= 3) {
-                result.push(element);
+    else if (difficulty <= 3) {
+        for (const i in workouts) {
+            if (Object.hasOwnProperty.call(workouts, i)) {
+                const element = workouts[i];
+                if (element.difficulty <= 3) {
+                    element.set = difficulty;
+                    result = result.push(element);
+                }
+                
             }
-            
         }
-    }
 }
-return result
+return result;
 }
 async function main () {
          //post request
