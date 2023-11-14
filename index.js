@@ -24,7 +24,7 @@ async function proccesWorkout(type,length = 10,time = undefined,preset = "auto")
                      result.push(element);
                  }
              }
-             result.slice(0,length);
+             result = result.slice(0,length);
              result.sort((a,b) => b.difficulty - a.difficulty);
            }
             break;
