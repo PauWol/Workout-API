@@ -13,33 +13,60 @@ const push = require('./workouts/push.json');
 app.use( cors() );
 app.use( express.json() );
 
-async function proccesWorkout(type,length = 10,time = undefined,preset = "auto") {
-    let result = [];
+//difficulty has a scale from 0 to 6
+async function proccesWorkout(type,difficulty = 3,length = 10,time = undefined,preset = "auto") {
+    let result = [],workouts;
     switch (type) {
         case 'push':
-           if (preset === "auto") {
-             for (const i in push.exercises) {
-                 if (Object.hasOwnProperty.call(push.exercises, i)) {
-                     const element = push.exercises[i];
-                     result.push(element);
-                 }
-             }
-             result = result.slice(0,length);
-             result.sort((a,b) => b.difficulty - a.difficulty);
-           }
+            workouts = push.exercises;
             break;
         case 'pull':
-  
+            workouts = pull.exercises;
             break;
         case 'leg':
-        
+            workouts = leg.exercises;
             break;
+    }
+    switch (preset) {
+        case 'auto':
+            result = autoWorkout(workouts,difficulty,length,time);
+            break;
+    
         default:
             break;
     }
+        result = result.slice(0,length);
+        result.sort((a,b) => b.difficulty - a.difficulty);
+    
     return result;
 }
 
+function autoWorkout(workouts,difficulty,length,time){
+    let result;
+if (difficulty >= 4) {
+    for (const i in workouts) {
+        if (Object.hasOwnProperty.call(workouts, i)) {
+            const element = workouts[i];
+            if (element.difficulty >= 3) {
+                result.push(element);
+            }
+            
+        }
+    }
+}
+else if (difficulty <= 3) {
+    for (const i in workouts) {
+        if (Object.hasOwnProperty.call(workouts, i)) {
+            const element = workouts[i];
+            if (element.difficulty <= 3) {
+                result.push(element);
+            }
+            
+        }
+    }
+}
+return result
+}
 async function main () {
          //post request
     app.post('/api/:id', async (req, res) => {
@@ -49,6 +76,7 @@ async function main () {
         const { length } = req.body;
         const { time } = req.body;
         const { preset } = req.body;
+        const { difficulty } = req.body;
         if (id != requestId) {
             res.status(418).send({
                 message:'Wrong Id'
@@ -61,7 +89,7 @@ async function main () {
             }
             )
         }
-        let response = await proccesWorkout(type,length,time,preset);
+        let response = await proccesWorkout(type,difficulty,length,time,preset);
         res.status(200).send({
             response:response,
             id:id
