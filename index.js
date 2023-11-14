@@ -48,7 +48,7 @@ function autoWorkout(workouts,difficulty,length,time){
             if (Object.hasOwnProperty.call(workouts, i)) {
                 const element = workouts[i];
                 if (element.difficulty >= 3) {
-                    element.set = difficulty;
+                    element["set"] = Number(difficulty);
                     result = result.push(element);
                 }
                 
@@ -60,7 +60,7 @@ function autoWorkout(workouts,difficulty,length,time){
             if (Object.hasOwnProperty.call(workouts, i)) {
                 const element = workouts[i];
                 if (element.difficulty <= 3) {
-                    element.set = difficulty;
+                    element["set"] = Number(difficulty);
                     result = result.push(element);
                 }
                 
